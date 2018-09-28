@@ -1,25 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
 import promise from "redux-promise";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./index.css";
 import reducers from "./reducers";
-import registerServiceWorker from "./registerServiceWorker";
+import NewPost from "./components/NewPost";
 import PostIndex from "./components/PostIndex";
+import registerServiceWorker from "./registerServiceWorker";
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
-      <div>
-        <Route path="/" component={PostIndex} />
-      </div>
+      <Switch>
+        <Route path="/" component={PostIndex} exact />
+        <Route path="/posts/new" component={NewPost} />
+      </Switch>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
+
 registerServiceWorker();
