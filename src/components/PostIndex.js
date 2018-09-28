@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import _ from "lodash";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from "react";
 
 import { fetchPosts } from "../actions";
 
@@ -10,7 +10,13 @@ class PostIndex extends Component {
   }
 
   render() {
-    return <div>I am the feedScreen</div>;
+    return (
+      <div>
+        {_.values(this.props.posts).map(post => (
+          <p key={post.id}>{post.title}</p>
+        ))}
+      </div>
+    );
   }
 }
 
@@ -18,11 +24,7 @@ const mapStateToProps = state => ({
   posts: state.posts
 });
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ fetchPosts }, dispatch);
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { fetchPosts }
 )(PostIndex);
