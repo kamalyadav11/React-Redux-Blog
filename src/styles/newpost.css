@@ -36,6 +36,7 @@
   text-decoration: none;
   margin: 14px 12px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .button-cancel {
@@ -47,4 +48,5 @@
   text-decoration: none;
   margin: 14px 12px;
   cursor: pointer;
+  font-size: 20px;
 }

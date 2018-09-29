@@ -14,7 +14,7 @@ class PostIndex extends Component {
   renderPosts = () => {
     return _.values(this.props.posts).map(post => (
       <p className="post__title" key={post.id}>
-        {post.title}
+        <Link to={`/posts/${post.id}`}>{post.title}</Link>
       </p>
     ));
   };
@@ -23,7 +23,7 @@ class PostIndex extends Component {
     return (
       <div className="container">
         <div>
-          <h3>Posts</h3>
+          <h3>Post Feed</h3>
           <div>{this.renderPosts()}</div>
         </div>
         <Link to="/posts/new">

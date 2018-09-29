@@ -7,7 +7,7 @@
   box-sizing: border-box;
   border: 1px double grey;
   padding: 10px;
-  border-radius: 4%;
+  border-radius: 10px;
 }
 
 .add-post__button {
@@ -19,4 +19,5 @@
   text-decoration: none;
   margin: 14px 12px;
   cursor: pointer;
+  font-size: 24px;
 }

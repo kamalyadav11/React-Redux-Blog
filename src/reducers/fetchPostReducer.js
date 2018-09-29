@@ -8,7 +8,7 @@ const fetchPosts = (state = {}, action) => {
     case FETCH_POST:
       return {
         ...state,
-        [action.payload.data.id]: action.data.payload
+        [action.payload.data.id]: action.payload.data
       };
     default:
       return state;

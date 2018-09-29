@@ -1,0 +1,23 @@
+.Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
+  box-sizing: border-box;
+  border: 1px double grey;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.SinglePost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 20px;
+  box-sizing: border-box;
+  border: 1px double grey;
+  padding: 10px;
+  border-radius: 10px;
+}
