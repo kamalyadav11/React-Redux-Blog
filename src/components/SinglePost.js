@@ -32,7 +32,7 @@ class SinglePost extends Component {
           Delete Post
         </button>
         <h3>{post.title}</h3>
-        <h5 className="category">Categories: {post.categories}</h5>
+        <h5>Categories: {post.categories}</h5>
         <p>{post.content}</p>
       </div>
     );
