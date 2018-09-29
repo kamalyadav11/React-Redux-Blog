@@ -1,0 +1,21 @@
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.post__title {
+  box-sizing: border-box;
+  border: 1px double grey;
+  padding: 10px;
+  border-radius: 4%;
+}
+
+.add-post__button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 12px;
+  cursor: pointer;
+}

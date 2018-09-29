@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
 import { fetchPosts } from "../actions";
+import "../styles/postindex.css";
 
 class PostIndex extends Component {
   componentDidMount() {
@@ -12,18 +13,22 @@ class PostIndex extends Component {
 
   renderPosts = () => {
     return _.values(this.props.posts).map(post => (
-      <p key={post.id}>{post.title}</p>
+      <p className="post__title" key={post.id}>
+        {post.title}
+      </p>
     ));
   };
 
   render() {
     return (
-      <div>
+      <div className="flex-container">
+        <div>
+          <h3>Posts</h3>
+          <div>{this.renderPosts()}</div>
+        </div>
         <Link to="/posts/new">
-          <button>Add a Post</button>
+          <button className="add-post__button">Add a Post</button>
         </Link>
-        <h3>Posts</h3>
-        <ul>{this.renderPosts()}</ul>
       </div>
     );
   }

@@ -1,0 +1,12 @@
+.input__title {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 18px 18px;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.title__lable {
+  margin: 10px;
+}
