@@ -1,7 +1,7 @@
 import _ from "lodash";
 import { FETCH_POSTS } from "../actions";
 
-const posts = (state = {}, action) => {
+const fetchPosts = (state = {}, action) => {
   switch (action.type) {
     case FETCH_POSTS:
       return _.mapKeys(action.payload.data, "id");
@@ -10,4 +10,4 @@ const posts = (state = {}, action) => {
   }
 };
 
-export default posts;
+export default fetchPosts;

@@ -1,12 +1,50 @@
 .input__title {
   width: 40%;
   padding: 12px 20px;
-  margin: 18px 18px;
+  margin: 4px 18px;
   box-sizing: border-box;
   border: 1px solid grey;
   border-radius: 4px;
+  font-size: 20px;
+}
+
+.red-border__error {
+  border: 1px solid red;
+}
+
+.red-text__error {
+  color: red;
+  margin: 0px 18px;
+  font-size: 10px;
 }
 
 .title__lable {
   margin: 10px;
+}
+
+.flex-containers {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-button {
+  background-color: #008cba;
+  border: none;
+  border-radius: 5%;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 14px 12px;
+  cursor: pointer;
+}
+
+.button-cancel {
+  background-color: grey;
+  border: none;
+  border-radius: 5%;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 14px 12px;
+  cursor: pointer;
 }

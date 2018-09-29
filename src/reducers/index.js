@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 
-import posts from "./postReducer";
+import fetchPosts from "./fetchPostReducer";
 
 export default combineReducers({
-  posts,
+  fetchPosts,
   form: formReducer
 });

@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
-import { fetchPosts } from "../actions";
 import "../styles/postindex.css";
+import { fetchPosts } from "../actions";
 
 class PostIndex extends Component {
   componentDidMount() {
@@ -21,7 +21,7 @@ class PostIndex extends Component {
 
   render() {
     return (
-      <div className="flex-container">
+      <div className="container">
         <div>
           <h3>Posts</h3>
           <div>{this.renderPosts()}</div>

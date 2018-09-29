@@ -1,21 +1,39 @@
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 
 import "../styles/newpost.css";
+import { createPost } from "../actions";
 
 class NewPost extends Component {
   renderField = field => {
+    const { touched, error } = field.meta;
+    const className = `input__title ${
+      touched && error ? "red-border__error" : ""
+    }`;
     return (
-      <div>
+      <div className="flex-containers">
         <label className="title__lable">{field.label}</label>
-        <input {...field.input} className="input__title" />
+        <input {...field.input} className={className} />
+        <div className="red-text__error">{touched && error}</div>
       </div>
     );
   };
 
+  //@history.push is coming from react-router
+  //basically if the createPost request is successfully accomplished only then we redirect to Home page
+  onSubmit = values => {
+    this.props.createPost(values, () => {
+      this.props.history.push("/");
+    });
+  };
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <Field
           name="title"
           type="text"
@@ -26,7 +44,7 @@ class NewPost extends Component {
           name="categories"
           type="text"
           component={this.renderField}
-          label="Categories"
+          label="Category"
         />
         <Field
           name="content"
@@ -34,6 +52,12 @@ class NewPost extends Component {
           component={this.renderField}
           label="Content"
         />
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
+        <Link to="/">
+          <button className="button-cancel">Cancel</button>
+        </Link>
       </form>
     );
   }
@@ -52,4 +76,9 @@ const validate = values => {
 export default reduxForm({
   validate,
   form: "NewPost"
-})(NewPost);
+})(
+  connect(
+    null,
+    { createPost }
+  )(NewPost)
+);
