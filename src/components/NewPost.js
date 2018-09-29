@@ -23,10 +23,10 @@ class NewPost extends Component {
           label="Title"
         />
         <Field
-          name="tags"
+          name="categories"
           type="text"
           component={this.renderField}
-          label="Tags"
+          label="Categories"
         />
         <Field
           name="content"
@@ -39,6 +39,17 @@ class NewPost extends Component {
   }
 }
 
+const validate = values => {
+  const errors = {};
+
+  if (!values.title) errors.title = "Title is Required";
+  if (!values.categories) errors.categories = "Enter some categories";
+  if (!values.content) errors.content = "Content is Required";
+
+  return errors;
+};
+
 export default reduxForm({
+  validate,
   form: "NewPost"
 })(NewPost);
