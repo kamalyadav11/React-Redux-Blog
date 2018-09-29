@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
-import { fetchPost } from "../actions";
+import { fetchPost, deletePost } from "../actions";
 import "../styles/singlepost.css";
 
 class SinglePost extends Component {
@@ -10,6 +10,13 @@ class SinglePost extends Component {
     const { id } = this.props.match.params;
     this.props.fetchPost(id);
   }
+
+  deletePost = () => {
+    const { id } = this.props.match.params;
+    this.props.deletePost(id, () => {
+      this.props.history.push("/");
+    });
+  };
 
   render() {
     const { post } = this.props;
@@ -21,7 +28,9 @@ class SinglePost extends Component {
     return (
       <div className="SinglePost">
         <Link to="/">Back to Feed</Link>
-        <button className="delete-button">Delete Post</button>
+        <button className="delete-button" onClick={this.deletePost}>
+          Delete Post
+        </button>
         <h3>{post.title}</h3>
         <h5 className="category">Categories: {post.categories}</h5>
         <p>{post.content}</p>
@@ -38,5 +47,5 @@ const mapStateToProps = ({ fetchPosts }, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  { fetchPost }
+  { fetchPost, deletePost }
 )(SinglePost);
