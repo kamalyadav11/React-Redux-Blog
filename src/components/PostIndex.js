@@ -35,7 +35,7 @@ class PostIndex extends Component {
 }
 
 const mapStateToProps = state => ({
-  posts: state.posts
+  posts: state.fetchPosts
 });
 
 export default connect(
