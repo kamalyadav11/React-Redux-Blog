@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { FETCH_POSTS, FETCH_POST } from "../actions";
+import { FETCH_POSTS, FETCH_POST, DELETE_POST } from "../actions";
 
 const fetchPosts = (state = {}, action) => {
   switch (action.type) {
@@ -10,6 +10,8 @@ const fetchPosts = (state = {}, action) => {
         ...state,
         [action.payload.data.id]: action.payload.data
       };
+    case DELETE_POST:
+      return _.omit(state, action.payload); //for deleting from localstorage
     default:
       return state;
   }
